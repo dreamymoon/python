@@ -73,3 +73,10 @@ import re
 p_node= soup.find('p',class_='title')
 print p_node.name,  p_node.get_text()
 
+Python爬虫-HTMLSession的使：
+import requests
+from requests_html import HTMLSession
+session = HTMLSession()
+url="http://www.sina.com.cn/"
+r=session.get(url)
+print(r.html.text)
