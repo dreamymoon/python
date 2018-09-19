@@ -114,4 +114,49 @@ df.columns = ['text', 'link']
 print (df)
 df.to_csv('output.csv', encoding='gbk', index=False)
 
+机器学习进行决策：
+import pandas as pd
+df=pd.read_csv('loans.csv')
+df.head()
 
+x=df.drop('safe_loans',axis=1)
+y=df.safe_loans
+print (x.shape)
+print (y.shape)
+print (x.head())
+
+from sklearn.preprocessing import LabelEncoder
+from collections import defaultdict
+d = defaultdict(LabelEncoder)
+x_trans = x.apply(lambda x: d[x.name].fit_transform(x))
+x_trans.head()
+print(x_trans)  #将文字转变成可比较的数据
+
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(x_trans, y, random_state=1)  #测试集
+
+from sklearn import tree
+clf = tree.DecisionTreeClassifier(max_depth=3)
+clf = clf.fit(x_train, y_train)  #生成决策树
+
+with open("safe-loans.dot", 'w') as f:
+    f = tree.export_graphviz(clf,
+                            out_file=f,
+                            max_depth=4,
+                            impurity=True,
+                            feature_names=list(x_train),
+                            class_names=['not safe', 'safe'],
+                            rounded=True,
+                            filled=True)
+
+from subprocess import check_call
+
+check_call(['dot', '-Tpng', 'safe-loans.dot', '-o', 'safe-loans.png'])
+
+from IPython.display import Image as PImage
+from PIL import Image, ImageDraw, ImageFont
+
+img = Image.open("safe-loans.png")
+draw = ImageDraw.Draw(img)
+img.save('output.png')
+PImage("output.png")  #决策树可视化结果
