@@ -84,3 +84,34 @@ X_train,X_test, y_train, y_test =cross_validation.train_test_split(train_data,tr
 # test_size：样本占比，如果是整数的话就是样本的数量
 # random_state：是随机数的种子。
 # 随机数种子：其实就是该组随机数的编号，在需要重复试验的时候，保证得到一组一样的随机数。比如你每次都填1，其他参数一样的情况下你得到的随机数组是一样的。但填0或不填，每次都会不一样。
+
+将网页上的超链接和对应的标题保存至电脑excel的代码：
+#coding=utf-8
+from requests_html import HTMLSession
+session=HTMLSession()
+url='https://www.jianshu.com/p/85f4624485b9'
+r=session.get(url)
+
+sel='body > div.note > div.post > div.article > div.show-content > div > p > a'
+results=r.html.find(sel)
+
+def get_text_link_from_sel(sel):
+    mylist = []
+    try:
+        results = r.html.find(sel)
+        for result in results:
+            mytext = result.text
+            mylink = list(result.absolute_links)[0]
+            mylist.append((mytext, mylink))
+        return mylist
+    except:
+        return None
+
+import pandas as pd
+df = pd.DataFrame(get_text_link_from_sel(sel))
+
+df.columns = ['text', 'link']
+print (df)
+df.to_csv('output.csv', encoding='gbk', index=False)
+
+
