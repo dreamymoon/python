@@ -160,3 +160,10 @@ img = Image.open("safe-loans.png")
 draw = ImageDraw.Draw(img)
 img.save('output.png')
 PImage("output.png")  #决策树可视化结果
+
+test_rec = x_test.iloc[1,:]
+print (clf.predict([test_rec])) #测试集预测结果
+print(y_test.iloc[1])  #真实结果
+
+from sklearn.metrics import accuracy_score
+print(accuracy_score(y_test, clf.predict(x_test)))#判断准确率
