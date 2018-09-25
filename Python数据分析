@@ -1,0 +1,75 @@
+（一）关于numpy部分的应用
+#encoding=utf-8
+import numpy as np
+
+def main():
+    #第一部分
+    lst = [[1, 3, 5], [2, 4, 6]]
+    print (type(lst))
+    np_lst=np.array(lst)
+    print (type(np_lst))
+    np_lst=np.array(lst,dtype=np.float)
+    print(np_lst.shape)#数组每一维的大小
+    print(np_lst.ndim)#数组的维数
+    print(np_lst.dtype)#数组中元素的类型（numpy.int32, numpy.int16, and numpy.float64等）
+    print(np_lst.itemsize)#每个元素占几个字节
+    print(np_lst.size)#数组中全部元素的数量
+    #第二部分
+    print(np.zeros([2,4]))
+    print(np.ones([3,5]))
+    print('Rand:')#零一之间的随机数
+    print(np.random.rand(2,4))#两行四列
+    print(np.random.rand())
+    print('RandInt:')
+    print(np.random.randint(1,10,3))#整数，1~10，取3个
+    print('Randn:')#标准正态分布
+    print(np.random.randn(2,4))
+    print('Choice:')
+    print(np.random.choice([10,20,30])) #三选一
+    print('Distribute:')
+    print(np.random.beta(1,10,100))#1~10之间的beta分布
+    #第三部分
+    print(np.arange(1,11).reshape(2,5))#产生等差数列，包括1不包括11，reshape两行五列
+    lst=np.arange(1,11).reshape(2,5)
+    print(np.exp(lst)) #exp指数，exp2指数平方，sqrt开方，sin三角函数，log对数
+
+    lst= np.array([[[1,2,3,4],
+                    [4,5,6,7]],
+                    [[7,8,9,10],
+                    [10,11,12,13]],
+                    [[14,15,16,17],
+                    [18,19,20,21]]
+                   ])
+    print(lst.sum(axis=2)) #sum全部加总，axis=0，[a,b,c]最外层对应加总，axis=1,[(x1,y1),(x2,y2),(x3,y3)],123分别加总
+    print(lst.max(axis=1))
+    print(lst.min(axis=0))
+
+    lst1=np.array([10,20,30,40])
+    lst2=np.array([4,3,2,1])
+    print(lst1+lst2)#加减乘除都可以，**平方，e.g.lst1**2
+    print(np.dot(lst1.reshape([2,2]),lst2.reshape([2,2]))) #点乘
+    print(np.concatenate((lst1,lst2),axis=0)) #追加函数
+    print(np.vstack((lst1,lst2)))#合成函数
+    print(np.hstack((lst1, lst2)))#合成函数
+    print(np.split(lst1,4))#一个函数分成4个
+    print(np.copy(lst1) ) #拷贝数组
+    #第四部分
+    from numpy.linalg import *
+    print(np.eye(3))#单位矩阵
+    lst=np.array([[1,2],
+                  [3,4]])
+    print(inv(lst))#逆矩阵，相乘等于单位矩阵
+    print(lst.transpose())#转置矩阵，右上角小T
+    print(det(lst))#行列式
+    print(eig(lst))#array1特征值，array2特征向量
+    y=np.array([[5.],[7.]])#a+2b=5,3a+4b=7,求解ab
+    print(solve(lst,y))
+    #第五部分
+    print('FFT:')#信号处理领域碰到的概念
+    print(np.fft.fft(np.array([1,1,1,1,1,1,1,1])))
+    print('Coef:')#计算相关系数，如皮尔逊系数
+    print(np.corrcoef([1,0,1],[0,2,1]))
+    print(np.poly1d([2,1,3]))#一元函数
+
+if __name__=='__main__':
+    main()
