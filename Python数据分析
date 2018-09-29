@@ -83,7 +83,7 @@ reload(sys)
 sys.setdefaultencoding('utf-8')#这三行加入不会出现图片无法显示问题
 
 def main():
-    #line，第一课折线图内容
+    #第一课line，折线图
     import matplotlib.pyplot as plt
     x=np.linspace(-np.pi,np.pi,256,endpoint=True)#-Π，Π之间，256个点，包含最后一个点
     c,s=np.cos(x),np.sin(x)
@@ -115,6 +115,37 @@ def main():
                  textcoords='offset points',arrowprops=dict(arrowstyle='->',connectionstyle='arc3,rad=.2')
                  )#给图加注释,加上arrowprops,可以用箭头指向cos(1),防止重合，connectionstyle表示弧度
     plt.show()#显示图片
+    
+    #第二课之scatter，散点图
+    fig=plt.figure()#表格
+    ax=fig.add_subplot(3,3,1)#画在三行三列的第一个位置上
+    n=128
+    X=np.random.normal(0,1,n)
+    Y=np.random.normal(0,1,n)
+    T=np.arctan2(Y,X)#上色
+    #plt.axes([0.025,0.025,0.95,0.95])
+    ax.scatter(X,Y,s=75,c=T,alpha=.5)#s大小，c颜色
+    plt.xlim(-1.5,1.5),plt.xticks([])#x的范围
+    plt.ylim(-1.5, 1.5), plt.yticks([])#y的范围
+    plt.axis()
+    plt.title('scatter')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.show()
+    #第二课之bar，柱状图
+    fig.add_subplot(332)#10范围内不用逗号也可
+    n=10 #10个点
+    X=np.arange(n) #构建数列0-9
+    Y1=(1-X/float(n))*np.random.uniform(0.5,1.0,n)
+    Y2=(1-X/float(n))*np.random.uniform(0.5,1.0,n)
+    plt.bar(X,+Y1,facecolor='#9999ff',edgecolor='white')#把Y1放在横轴上方
+    plt.bar(X,-Y2, facecolor='#ff9999', edgecolor='white')#把Y2放在横轴下方
+    for x,y in zip(X,Y1):
+        plt.text(x+0.4,y+0.05,'%.2f'%y, ha='center',va='bottom')#添加注释
+    for x,y in zip(X,Y2):
+        plt.text(x + 0.4, -y-0.05, '%.2f' % y, ha='center', va='top')
+    plt.show()
+    
 
 if __name__=='__main__':
     main()
