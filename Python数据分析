@@ -73,7 +73,7 @@ def main():
 
 if __name__=='__main__':
     main()
-    
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————    
 （二）关于matplotlib部分的应用
 #encoding=utf-8
 import numpy as np
@@ -83,8 +83,9 @@ reload(sys)
 sys.setdefaultencoding('utf-8')#这三行加入不会出现图片无法显示问题
 
 def main():
-    #第一课line，折线图
     import matplotlib.pyplot as plt
+    
+    #第一课line，折线图    
     x=np.linspace(-np.pi,np.pi,256,endpoint=True)#-Π，Π之间，256个点，包含最后一个点
     c,s=np.cos(x),np.sin(x)
     plt.figure(1)
@@ -114,8 +115,8 @@ def main():
     plt.annotate('cos(1)',xy=(t,np.cos(1)),xycoords='data',xytext=(+10,+30),
                  textcoords='offset points',arrowprops=dict(arrowstyle='->',connectionstyle='arc3,rad=.2')
                  )#给图加注释,加上arrowprops,可以用箭头指向cos(1),防止重合，connectionstyle表示弧度
-    plt.show()#显示图片
-    
+    plt.show()#显示图片  
+
     #第二课之scatter，散点图
     fig=plt.figure()#表格
     ax=fig.add_subplot(3,3,1)#画在三行三列的第一个位置上
@@ -131,7 +132,7 @@ def main():
     plt.title('scatter')
     plt.xlabel('x')
     plt.ylabel('y')
-    plt.show()
+    
     #第二课之bar，柱状图
     fig.add_subplot(332)#10范围内不用逗号也可
     n=10 #10个点
@@ -144,8 +145,50 @@ def main():
         plt.text(x+0.4,y+0.05,'%.2f'%y, ha='center',va='bottom')#添加注释
     for x,y in zip(X,Y2):
         plt.text(x + 0.4, -y-0.05, '%.2f' % y, ha='center', va='top')
+    
+    #第二课之pie，饼图
+    fig.add_subplot(333)
+    n=20
+    Z=np.ones(n)#权益变量，代表每一块的值
+    Z[-1]*=2 #最后一个设成2
+    plt.pie(Z,explode=Z*.05, colors=['%f'%(i/float(n)) for i in range(n)],
+            labels=['%.2f'% (i/float(n)) for i in range(n)])
+    #explode每个扇形离中心的距离，color此处表示每个颜色的灰度不一样
+    plt.gca().set_aspect('equal')#正的圆形，不会形变成椭圆
+    plt.xticks([]),plt.yticks([])
+
+    #第二课之polar，极坐标
+    fig.add_subplot(334,polar=True)#后半句使它变成极值图
+    n=20
+    theta=np.arange(0.0,2*np.pi,2*np.pi/n)#起始点，终点，间隔点
+    radii= 10*np.random.rand(n)#半径
+    plt.polar(theta,radii)
+    #plt.plot(theta,radii)
+
+    #第二课之heatmap 热图
+    fig.add_subplot(335)
+    from matplotlib import cm #color nap？上色用
+    data=np.random.rand(3,3)#3*3随机数
+    cmap=cm.Blues #指定蓝色
+    map=plt.imshow(data,interpolation='nearest', cmap=cmap,aspect='auto',vmin=0,vmax=1)
+    #极小值颜色0，值越大，越接近蓝色
+
+    #第二课之3D图
+    from mpl_toolkits.mplot3d import Axes3D
+    ax=fig.add_subplot(336,projection='3d') #指定成3D
+    ax.scatter(1,1,3,s=100)
+
+    #第二课之hot map热力图
+    fig.add_subplot(313) #一行三列，占了3*3中最后一行
+    def f(x,y):
+        return (1-x/2+x**5+y**3)*np.exp(-x**2-y**2)
+    n=256
+    x=np.linspace(-3,3,n)
+    y=np.linspace(-3,3,n)
+    X,Y=np.meshgrid(x,y)
+    plt.contourf(X,Y,f(X,Y),8,alpha=.75,cmap=plt.cm.hot)
+    plt.savefig('data.png') #保存图片
     plt.show()
     
-
 if __name__=='__main__':
     main()
