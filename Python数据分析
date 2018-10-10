@@ -400,12 +400,7 @@ if __name__=='__main__':
 （五）关于scikit-learn部分的应用
 #encoding=utf-8
 import numpy as np
-import pandas as pd
 #版本2.7
-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')#这三行加入不会出现图片无法显示问题
 
 def main():
     #6.1 Pre-processing
@@ -434,3 +429,45 @@ def main():
 
 if __name__=='__main__':
     main()
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+（六）关于keras部分的应用
+#encoding=utf-8
+import numpy as np
+from keras.models import Sequential#人工神经网络各个层的容器
+from keras.layers import Dense,Activation #加权求和的层；激活函数
+from keras.optimizers import SGD #随机梯度下的算法
+#tensorflow在2.7版本下无法用pip添加，3.7版本暂不支持，建议安装3.5x
+def main():
+    from sklearn.datasets import load_iris
+    iris = load_iris()
+    print(iris['target'])#打印显示0000，11111，2222三类，分别转换为100，010，001，如下
+    from sklearn.preprocessing import LabelBinarizer
+    print (LabelBinarizer().fit_transform(iris['target']))#标签化处理
+    from sklearn.cross_validation import train_test_split
+    train_data, test_data, train_target, test_target = train_test_split(iris.data, iris.target, test_size=0.2,
+                                                                        random_state=1)
+    label_train=LabelBinarizer().fit_transform(train_target)
+    label_test=LabelBinarizer().fit_transform(test_target)
+
+    model=Sequential(#填入网络结构
+        [
+            Dense(5,input_dim=4),#第一层输出5个，输入4个，对应4个属性值
+            Activation('rule'),#激活函数
+            Dense(3),#输入即上一层的输出
+            Activation('sigmoid')
+        ]
+    )
+    #model=Sequential()
+    #model.add(Dense(5,input=4))  和上面类似功能
+
+    sgd=SGD(lr=0.01,decay=1e-6,momentum=0.9,nesterov=True)
+    # 随机梯度算法下的优化器,momentum时滞因子
+    model.compile(optimizer=sgd,loss='categorical_crossentropy')
+    model.fit(train_data,labels_train,nb_epoch=200,batch_size=40)   #训练200轮，一批用40个数据
+    print (model.predict_classes(test_data))
+    model.save_weights('./xxxxx')#保存至指定目录
+    model.load_weights('./xxxxx')#下次打开的指令
+    
+if __name__=='__main__':
+    main()
+——————————————————————————————————————————【完结】（代码摘录自慕课网Python数据分析-基础技术篇，业余学习周期两周）——————————————————————————————————————————————————
