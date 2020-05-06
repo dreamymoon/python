@@ -1,1 +1,4 @@
 #week one
+int 整数 floats 有小数 str 文本
+int(3.1)  int(3.9) 赎出均为3
+valueable命名原则：字母开头，不存在特殊符号（$+之类的）
