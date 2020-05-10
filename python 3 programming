@@ -6,3 +6,6 @@ x%y  #x/y的reminder
 valueable命名原则：字母开头，不存在特殊符号（$+之类的）
 x+=3 #increment x by 3;same as x=x+3
 x-=3 #同理
+randrange(1,7)   # return an int, one of 1,2,3,4,5,6
+
+
