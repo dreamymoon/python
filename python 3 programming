@@ -1,3 +1,4 @@
+————————————————————————————————————————————python basic————————————————————
 #week one
 int 整数 floats 有小数 str 文本
 int(3.1)  int(3.9) 赎出均为3
@@ -8,6 +9,7 @@ x+=3 #increment x by 3;same as x=x+3
 x-=3 #同理
 randrange(1,7)   # return an int, one of 1,2,3,4,5,6
 
+#week four
  the behavior of obj = obj + object_two is different than obj += object_two when obj is a list.
  The first version makes a new object entirely and reassigns to obj. 
  The second version changes the original object so that the contents of object_two are added to the end of the first.
