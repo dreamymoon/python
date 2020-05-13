@@ -17,4 +17,12 @@ randrange(1,7)   # return an int, one of 1,2,3,4,5,6
 mylist.append(5) 添加5进去；mylist.insert(1, 12) 在1位置插入12；mylist.count(12) 12出现次数计数；mylist.index(3) 3出现的位置；
 mylist.reverse()前后倒；mylist.sort() 从小到大排列；mylist.remove(5) 移除5这个数字 VS del mylist[0]删除第一位数；mylist.pop() Removes and returns the last item；
 Non-mutating:a.upper() a.lower() 全部大写/小写；"***"+ss.strip()+"***" 移除前后的空格；news = ss.replace("o", "***") 替换
- 
+
+format的使用：
+origPrice = float(input('Enter the original price: $'))
+discount = float(input('Enter discount percentage: '))
+newPrice = (1 - discount/100)*origPrice
+calculation = '${:.2f} discounted by {}% is ${:.2f}.'.format(origPrice, discount, newPrice)  #{:.2f}表示float后小数取两位
+print(calculation)
+
+
