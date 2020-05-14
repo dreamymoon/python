@@ -113,7 +113,7 @@ open(filename,'r')读取文件；open(filename,'w')写内容进文件；
 .readline()阅读下一行，填456都一样，阅读的都是当前的下一行；.readlines(n) 阅读并返回n行，print的时候每行最后会有\n，表示回车换行；不想换行用.strip()功能
 打开几行[:4]要用.readlines()；打开全部用fileref；fileref[:4]这个写法是错误的！
 查找文件：../xx/xx 相对查找法；xxx/xx/xx 绝对查找法；建议用前者
-————Writing Text Files注意及时close，square是int，写到file里要先转为string
+————Writing Text Files 注意及时close，square是int，写到file里要先转为string
 filename = "squared_numbers.txt"
 outfile = open(filename, "w")
 
@@ -128,3 +128,20 @@ print(infile.read()[:10])
 infile.close()
 ————
 with open('mydata.txt', 'r') as md 等同于 md = open('mydata.txt', 'r')
+————Writing data to a CSV File
+olympians = [("John Aalberg", 31, "Cross Country Skiing"),
+             ("Minna Maarit Aalto", 30, "Sailing"),
+             ("Win Valdemar Aaltonen", 54, "Art Competitions"),
+             ("Wakako Abe", 18, "Cycling")]
+
+outfile = open("reduced_olympics.csv", "w")
+# output the header row
+outfile.write('Name,Age,Sport')
+outfile.write('\n')
+# output each of the rows:
+for olympian in olympians:
+    row_string = '{},{},{}'.format(olympian[0], olympian[1], olympian[2])
+    outfile.write(row_string)
+    outfile.write('\n')
+outfile.close()
+————
