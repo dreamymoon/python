@@ -110,7 +110,21 @@ for inv in inventory:
 #week 1
 open(filename,'r')读取文件；open(filename,'w')写内容进文件；
 .read(n) Read and return a string of n characters, or the entire file as a single string if n is not provided；
-.readline()阅读下一行，填456都一样，阅读的都是当前的下一行；.readlines(n) 阅读并返回n行，print的时候每行最后会有\n，表示回车换行；
+.readline()阅读下一行，填456都一样，阅读的都是当前的下一行；.readlines(n) 阅读并返回n行，print的时候每行最后会有\n，表示回车换行；不想换行用.strip()功能
 打开几行[:4]要用.readlines()；打开全部用fileref；fileref[:4]这个写法是错误的！
+查找文件：../xx/xx 相对查找法；xxx/xx/xx 绝对查找法；建议用前者
+————Writing Text Files注意及时close，square是int，写到file里要先转为string
+filename = "squared_numbers.txt"
+outfile = open(filename, "w")
 
+for number in range(1, 13):
+    square = number * number
+    outfile.write(str(square) + "\n")
 
+outfile.close()
+
+infile = open(filename, "r")
+print(infile.read()[:10])
+infile.close()
+————
+with open('mydata.txt', 'r') as md 等同于 md = open('mydata.txt', 'r')
