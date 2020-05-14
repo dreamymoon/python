@@ -110,7 +110,7 @@ for inv in inventory:
 #week 1
 open(filename,'r')读取文件；open(filename,'w')写内容进文件；
 .read(n) Read and return a string of n characters, or the entire file as a single string if n is not provided；
-.readline(n) 阅读并返回n行，print的时候每行最后会有\n，表示回车换行；
+.readline()阅读某行；.readlines(n) 阅读并返回n行，print的时候每行最后会有\n，表示回车换行；
 打开几行[:4]要用.readlines()；打开全部用fileref；fileref[:4]这个写法是错误的！
 
 
