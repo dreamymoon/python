@@ -158,6 +158,6 @@ print(eng2sp)
 eng2sp = {'three': 'tres', 'one': 'uno', 'two': 'dos'}
 print(eng2sp)
 
-del inventory['pears'] 删除某个value和对应的pair；
+del inventory['pears'] 删除某个value和对应的key；
 
 
