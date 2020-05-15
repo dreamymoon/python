@@ -158,6 +158,10 @@ print(eng2sp)
 eng2sp = {'three': 'tres', 'one': 'uno', 'two': 'dos'}
 print(eng2sp)
 
-del inventory['pears'] 删除某个key和对应的value；
+del inventory['pears'] 删除某个key和对应的value；items 返回dictionary中的key-value pairs；
+inventory["a"]可用inventory.get("a") 代替，因为"a"不在dictionary里的话，前者返回错误，后者返回none。
+再进一步，inventory.get("a"，0)，如果a不在dictionary里，则返回0，若在，则返回a的value
+
+
 
 
