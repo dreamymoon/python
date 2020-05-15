@@ -145,3 +145,19 @@ for olympian in olympians:
     outfile.write('\n')
 outfile.close()
 ————
+
+#week 2
+创造Dictionaries有两种方法：
+第一种：
+eng2sp = {}
+eng2sp['one'] = 'uno'
+eng2sp['two'] = 'dos'
+eng2sp['three'] = 'tres'
+print(eng2sp)
+第二种：
+eng2sp = {'three': 'tres', 'one': 'uno', 'two': 'dos'}
+print(eng2sp)
+
+
+
+
