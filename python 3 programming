@@ -188,3 +188,7 @@ for k in ks:
 
 print("key " + best_key_so_far + " has the highest value, " + str(d[best_key_so_far]))
 ————
+#week 3
+function定义，注意后面的括号不要忘记
+def name( parameters ):
+    statements
