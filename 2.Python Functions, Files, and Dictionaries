@@ -94,3 +94,25 @@ tuple=["a","b",1942,"you"]为了可读性，可以省略方括号，tuple="a","b
 julia = "Julia", "Roberts", 1967, "Duplicity", 2009, "Actress", "Atlanta, Georgia"
 name, surname, birth_year, movie, movie_year, profession, birth_place = julia
 前两行左右的个数要对等
+
+————Tuple unpacking
+def add (x,y):
+    return x+y
+
+print(add(3,4))
+z=(5,4)
+print(add(*z))  #this line will cause the values to be unpacked
+print(add(z))   #this line causes an error
+—————
+If you remember, the .items() dictionary method produces a sequence of tuples. 
+Keeping this in mind, we have provided you a dictionary called pokemon. 
+For every key value pair, append the key to the list p_names, and append the value to the list p_number. 
+Do not use the .keys() or .values() methods.
+做法如下：
+p_names=[]
+p_number=[]
+pokemon = {'Rattata': 19, 'Machop': 66, 'Seel': 86, 'Volbeat': 86, 'Solrock': 126}
+for p in pokemon.items():  #这里注意这个items的用法，用得好比.keys()省心不少
+    p_names.append(p[0])
+    p_number.append(p[1])
+————
