@@ -87,3 +87,5 @@ def name( parameters ):
     ***This is a comment stating what the function does.***   #用***来表示
     statements
 结束def中的定义时，用return而不用print，后者会造成误会，且返回none
+
+tuple=["a","b",1942,"you"]这样写比较麻烦，可以省略方括号，tuple="a","b",1942,"you"
