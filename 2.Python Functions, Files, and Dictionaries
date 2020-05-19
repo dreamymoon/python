@@ -116,3 +116,17 @@ for p in pokemon.items():  #这里注意这个items的用法，用得好比.keys
     p_names.append(p[0])
     p_number.append(p[1])
 ————
+
+#week four
+Write a function called stop_at_four that iterates through a list of numbers. 
+Using a while loop, append each number to a new list until the number 4 appears. 
+The function should return the new list.有点难，错误了好多次才完全正确
+————第一次把lst=[]写到def前，这样成了global范围，local无法引用，参考上一周的课；第二次在while里没加范围条件：n<len(lst1) and，提示out of range错误
+def stop_at_four(lst1):
+    n=0
+    lst=[]
+    while n<len(lst1) and lst1[n] !=4:
+        lst.append(lst1[n])
+        n=n+1
+    return lst  
+————
