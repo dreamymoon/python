@@ -147,3 +147,8 @@ for n in names:
 names = ["Jack","Jill","Mary"]
 for n in names:
     print("'{0}!' she yelled. '{0}! {0}, {1}!'".format(n,"say hello"))
+————
+def func(args):
+    return ret_val
+等价于
+func=lambda args:ret_val
