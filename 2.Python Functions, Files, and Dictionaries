@@ -152,3 +152,4 @@ def func(args):
     return ret_val
 等价于
 func=lambda args:ret_val
+e.g print((lambda x: x-2)(6)) #4
