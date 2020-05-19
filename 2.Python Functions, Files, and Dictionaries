@@ -137,4 +137,13 @@ f(2)         #x, y, z, are: 2, 3, 7 当f只有一个值的时候，这个值指�
 f(2, 5)      #x, y, z, are: 2, 5, 7
 f(2, 5, 8)   #x, y, z, are: 2, 5, 8
 f(2,z=5)     #x, y, z, are: 2, 3, 5 这样可以直接跳过y的赋值，但记住f(z=5,2)这样的写法是不对的
-————
+————format里两种用法如下：
+# this works
+names = ["Jack","Jill","Mary"]
+for n in names:
+    print("'{}!' she yelled. '{}! {}, {}!'".format(n,n,n,"say hello"))
+
+# but this also works!
+names = ["Jack","Jill","Mary"]
+for n in names:
+    print("'{0}!' she yelled. '{0}! {0}, {1}!'".format(n,"say hello"))
