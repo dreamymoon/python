@@ -133,7 +133,7 @@ def stop_at_four(lst1):
 initial = 7
 def f(x, y =3, z=initial):
     print("x, y, z, are: " + str(x) + ", " + str(y) + ", " + str(z))
-f(2)         #x, y, z, are: 2, 3, 7
+f(2)         #x, y, z, are: 2, 3, 7 当f只有一个值的时候，这个值指向x
 f(2, 5)      #x, y, z, are: 2, 5, 7
 f(2, 5, 8)   #x, y, z, are: 2, 5, 8
 f(2,z=5)     #x, y, z, are: 2, 3, 5 这样可以直接跳过y的赋值，但记住f(z=5,2)这样的写法是不对的
