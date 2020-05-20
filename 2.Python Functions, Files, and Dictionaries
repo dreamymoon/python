@@ -190,3 +190,25 @@ def checkingIfIn(a, direction = True, d = {'apple': 2, 'pear': 1, 'fruit': 19, '
         else:
             return False
 ————            
+
+#week five
+————关于sort的介绍：用.sort()有side effect，用sorted（）比较好
+L2 = ["Cherry", "Apple", "Blueberry"]
+
+L3 = sorted(L2)
+print(L3)
+print(sorted(L2))  #不改变L2的排序
+print(L2) # unchanged
+
+print("----")
+
+L2.sort()
+print(L2)
+print(L2.sort())  #return value is None 改变了L2的排序，有side effect
+————sorted可以用于strings，但是sort不能
+print (sorted("apple")) #return ["a","e","l',"p","p"]
+"apple".sort()  #错误
+————综上，sorted更优
+
+
+
