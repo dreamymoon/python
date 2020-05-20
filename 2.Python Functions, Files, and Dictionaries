@@ -225,6 +225,18 @@ print(L2)
 
 #or in reverse order
 print(sorted(L1, reverse=True, key=absolute))
-————
+————sorting a dictionary 代码很简洁
+L = ['E', 'F', 'B', 'A', 'D', 'I', 'I', 'C', 'B', 'A', 'D', 'D', 'E', 'D']
 
+d = {}
+for x in L:
+    if x in d:
+        d[x] = d[x] + 1
+    else:
+        d[x] = 1
+
+# now loop through the sorted keys
+for k in sorted(d, key=lambda k: d[k], reverse=True):
+      print("{} appears {} times".format(k, d[k]))
+————
 
