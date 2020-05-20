@@ -238,5 +238,6 @@ for x in L:
 # now loop through the sorted keys
 for k in sorted(d, key=lambda k: d[k], reverse=True):
       print("{} appears {} times".format(k, d[k]))
+print (sorted(d))#我为了测试多加的，出来的结果是['A', 'B', 'C', 'D', 'E', 'F', 'I']，和print （d）的结果是不一样的，后者显示的是dictionary      
 ————
 
