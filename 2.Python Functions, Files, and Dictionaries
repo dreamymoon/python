@@ -1,5 +1,5 @@
 ————————————————————————————————— Python Functions, Files, and Dictionaries ———————————————————————————
-#week 1
+                                             ———————————— week 1 ————————————
 open(filename,'r')读取文件；open(filename,'w')写内容进文件；
 .read(n) Read and return a string of n characters, or the entire file as a single string if n is not provided；
 .readline()阅读下一行，填456都一样，阅读的都是当前的下一行；.readlines(n) 阅读并返回n行，print的时候每行最后会有\n，表示回车换行；不想换行用.strip()功能
@@ -38,7 +38,7 @@ for olympian in olympians:
 outfile.close()
 ————
 
-#week 2
+                                          ———————————————— week 2 ——————————————
 创造Dictionaries有两种方法：
 第一种：
 eng2sp = {}
@@ -81,7 +81,7 @@ for k in ks:
 print("key " + best_key_so_far + " has the highest value, " + str(d[best_key_so_far]))
 ————
 
-#week 3
+                                             ———————————————— week 3 ————————————————
 function定义，注意后面的括号不要忘记
 def name( parameters ):
     ***This is a comment stating what the function does.***   #用***来表示
@@ -117,7 +117,7 @@ for p in pokemon.items():  #这里注意这个items的用法，用得好比.keys
     p_number.append(p[1])
 ————
 
-#week four
+                                                ———————————————— week 4 ————————————————
 Write a function called stop_at_four that iterates through a list of numbers. 
 Using a while loop, append each number to a new list until the number 4 appears. 
 The function should return the new list.有点难，错误了好多次才完全正确
@@ -191,7 +191,7 @@ def checkingIfIn(a, direction = True, d = {'apple': 2, 'pear': 1, 'fruit': 19, '
             return False
 ————            
 
-#week five
+                                                   ———————————————— week 5 ————————————————
 ————关于sort的介绍：用.sort()有side effect，用sorted（）比较好
 L2 = ["Cherry", "Apple", "Blueberry"]
 
