@@ -12,4 +12,28 @@ d = {'key1': {'c': True, 'a': 90, '5': 50}, 'key2':{'b': 3, 'c': "yes"}}
 print(d)
 print('--------')
 print(pretty(d))
+————shallow-copy 与 deep-copy
+import copy #引入copy模块
+original = [['canines', ['dogs', 'puppies']], ['felines', ['cats', 'kittens']]]
+shallow_copy_version = original[:]  # shallow-copy is original-> False;shallow-copy == original -> True
+deeply_copied_version = copy.deepcopy(original)  #copy模块下的deepcopy功能
+original.append("Hi there")
+original[0].append(["marsupials"])
+print("-------- Original -----------")
+print(original)
+print("-------- deep copy -----------")
+print(deeply_copied_version)
+print("-------- shallow copy -----------")
+print(shallow_copy_version)
+————以下为显示结果，可以看得deep-copy是不受original改变的影响的；
+————而shallow-copy受到original部分影响：往original这个list加元素，shallow不变；往original的子list加元素，shallow跟着变化
+-------- Original -----------
+[['canines', ['dogs', 'puppies'], ['marsupials']], ['felines', ['cats', 'kittens']], 'Hi there']
+-------- deep copy -----------
+[['canines', ['dogs', 'puppies']], ['felines', ['cats', 'kittens']]]
+-------- shallow copy -----------
+[['canines', ['dogs', 'puppies'], ['marsupials']], ['felines', ['cats', 'kittens']]]
 ————
+
+
+
