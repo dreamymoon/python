@@ -1,1 +1,4 @@
-
+                           ———————————————— week 1 ————————————————
+JSON stands for JavaScript Object Notation，在这个module里有两个主要functions：dumps和loads
+写代码时要先import json
+json.loads() takes a string as input and produces a python object (a dictionary or a list) as output. json.dumps()相反
