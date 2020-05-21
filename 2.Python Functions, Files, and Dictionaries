@@ -240,4 +240,4 @@ for k in sorted(d, key=lambda k: d[k], reverse=True):
       print("{} appears {} times".format(k, d[k]))
 print (sorted(d))#我为了测试多加的，出来的结果是['A', 'B', 'C', 'D', 'E', 'F', 'I']，和print （d）的结果是不一样的，后者显示的是dictionary      
 ————
-
+最后的练习超级费时……说不上难不难，只是把所有知识点都结合起来了。有机会反复看看
