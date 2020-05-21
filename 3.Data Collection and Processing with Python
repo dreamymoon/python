@@ -2,3 +2,14 @@
 JSON stands for JavaScript Object Notation，在这个module里有两个主要functions：dumps和loads
 写代码时要先import json
 json.loads() takes a string as input and produces a python object (a dictionary or a list) as output. json.dumps()相反
+————
+import json
+def pretty(obj):
+    return json.dumps(obj, sort_keys=True, indent=2)  #sort_keys=True是按照字母表排列，先数字后字母
+
+d = {'key1': {'c': True, 'a': 90, '5': 50}, 'key2':{'b': 3, 'c': "yes"}}
+
+print(d)
+print('--------')
+print(pretty(d))
+————
