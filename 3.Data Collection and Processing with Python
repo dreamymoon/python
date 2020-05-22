@@ -57,4 +57,14 @@ def keep_evens(nums):
 print(keep_evens([3, 4, 6, 7, 0, 1]))
 ————List Comprehensions，集map和filter功能于一身
 常用格式 [<transformer_expression> for <varname> in <sequence> if <filteration_expression>]
-
+————zip function
+L1 = [3, 4, 5]
+L2 = [1, 2, 3]
+L4 = list(zip(L1, L2))
+print(L4)               #结果为[(3, 1), (4, 2), (5, 3)]
+————L1和l2相加，如何用zip以及list comprehensions
+L1 = [3, 4, 5]
+L2 = [1, 2, 3]
+L3 = [x1 + x2 for (x1, x2) in list(zip(L1, L2))]
+print(L3)
+————
