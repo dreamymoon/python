@@ -56,5 +56,5 @@ def keep_evens(nums):
 
 print(keep_evens([3, 4, 6, 7, 0, 1]))
 ————List Comprehensions，集map和filter功能于一身
-常用格式 [<transformer.expression> for <value name> in <sequence>]
+常用格式 [<transformer_expression> for <varname> in <sequence> if <filteration_expression>]
 
