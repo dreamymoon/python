@@ -48,8 +48,14 @@ def tripleStuff(a_list):
 
 things = [2, 5, 9]
 things3 = tripleStuff(things)
+print(things3)
+————filter function
+def keep_evens(nums):
+    new_seq = filter(lambda num: num % 2 == 0, nums)  #filter (some filtration function ,squence)
+    return list(new_seq)
+
+print(keep_evens([3, 4, 6, 7, 0, 1]))
 ————
 
 
 
-print(things3)
