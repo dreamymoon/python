@@ -37,3 +37,19 @@ print(shallow_copy_version)
 extracting from nested data要看每一层是什么类型，如果是dictionary，print .keys；如果是list，print（len（list））
 第一周的课后练习Nested Data and Iteration中第四题挺难的，需要思考
 
+                              ———————————————— week 2 ————————————————
+————map function 
+def triple(value):
+    return 3*value
+
+def tripleStuff(a_list):
+    new_seq = map(triple, a_list)  #map(transformer,sequence)
+    return list(new_seq)
+
+things = [2, 5, 9]
+things3 = tripleStuff(things)
+————
+
+
+
+print(things3)
