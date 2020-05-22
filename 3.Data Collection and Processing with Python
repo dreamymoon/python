@@ -35,5 +35,5 @@ print(shallow_copy_version)
 [['canines', ['dogs', 'puppies'], ['marsupials']], ['felines', ['cats', 'kittens']]]
 ————
 extracting from nested data要看每一层是什么类型，如果是dictionary，print .keys；如果是list，print（len（list））
-
+第一周的课后练习Nested Data and Iteration中第四题挺难的，需要思考
 
