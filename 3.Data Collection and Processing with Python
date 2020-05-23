@@ -73,7 +73,7 @@ print(L3)
 import requests # 这个模块有这些功能.text .url .json() .status_code .headers .history 
 import json
 
-page = requests.get("https://api.datamuse.com/words?rel_rhy=funny") 
+page = requests.get("https://api.datamuse.com/words?rel_rhy=funny")  #用request.get时， the first argument是问号后面的
 print(type(page))       #这里的类型是'requests.Response'
 print(page.text[:150]) # print the first 150 characters
 print(page.url) # print the url that was fetched
@@ -84,3 +84,28 @@ print("---first item in the list---")
 print(x[0])
 print("---the whole list, pretty printed---")
 print(json.dumps(x, indent=2)) # pretty print the results
+————
+# import statements for necessary Python modules
+import requests
+
+def get_rhymes(word):
+    baseurl = "https://api.datamuse.com/words"
+    params_diction = {} # Set up an empty dictionary for query parameters
+    params_diction["rel_rhy"] = word
+    params_diction["max"] = "3" # get at most 3 results
+    resp = requests.get(baseurl, params=params_diction) #注意这里的params要是dictionary，并且里面都是string，否则不会返回结果
+    # return the top three words
+    word_ds = resp.json()
+    return [d['word'] for d in word_ds]
+    return resp.json() # Return a python object (a list of dictionaries in this case)
+
+print(get_rhymes("funny"))
+————
+有个模块叫做request_with_caching 
+there are helper functions _write_to_file and read_to_file that write a cache dictionary to and read it from a file.
+Instead of invoking requests.get(), you’ll invoke requests_with_caching.get()
+运行后会返回3种结果：
+1.found in permanent cache 2.found in page-specific cache 3.new; adding to cache
+requests_with_caching.get()还有其他功能：cache_file  private_keys_to_ignore
+
+
