@@ -70,7 +70,7 @@ print(L3)
                                ———————————————— week 3 ————————————————
 了解REST APIs: URLs, Domain names, IP address
 ————fetching a page
-import requests
+import requests # 这个模块有这些功能.text .url .json() .status_code .headers .history 
 import json
 
 page = requests.get("https://api.datamuse.com/words?rel_rhy=funny") 
