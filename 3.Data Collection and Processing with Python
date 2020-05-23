@@ -79,7 +79,7 @@ print(page.text[:150]) # print the first 150 characters
 print(page.url) # print the url that was fetched
 print("------")
 x = page.json() # turn page.text into a python object，这里是json.loads(page.txt)的简要写法
-print(type(x))
+print(type(x))  # <class 'list'>
 print("---first item in the list---")
 print(x[0])
 print("---the whole list, pretty printed---")
