@@ -145,4 +145,4 @@ for photo in photos:
     print(url)
     # webbrowser.open(url)  这个功能教材上暂不支持
 ————
-
+第三周的最后作业也很费时，对提高写代码能力很有帮助！
