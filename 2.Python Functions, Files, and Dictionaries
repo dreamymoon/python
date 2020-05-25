@@ -236,8 +236,22 @@ for x in L:
         d[x] = 1
 
 # now loop through the sorted keys
-for k in sorted(d, key=lambda k: d[k], reverse=True):
+for k in sorted(d, key=lambda k: d[k], reverse=True):   #注意lambda k:（条件1，条件2）是先按条件1排列，条件1相同看条件2
       print("{} appears {} times".format(k, d[k]))
 print (sorted(d))#我为了测试多加的，出来的结果是['A', 'B', 'C', 'D', 'E', 'F', 'I']，和print （d）的结果是不一样的，后者显示的是dictionary      
+————Breaking Ties: Second Sorting 这个知识点在学第三门课的时候被点出来了
+fruits = ['peach', 'kiwi', 'apple', 'blueberry', 'papaya', 'mango', 'pear']
+new_order = sorted(fruits, key=lambda fruit_name: (len(fruit_name), fruit_name))
+for fruit in new_order:
+    print(fruit)
+————结果如下，先按长度升序排列，遇到长度一样的，再按字母表排列
+kiwi
+pear
+apple
+mango
+peach
+papaya
+blueberry
 ————
+
 最后的练习超级费时……说不上难不难，只是把所有知识点都结合起来了。有机会反复看看
