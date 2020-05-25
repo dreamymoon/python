@@ -5,7 +5,7 @@ json.loads() takes a string as input and produces a python object (a dictionary 
 ————
 import json
 def pretty(obj):
-    return json.dumps(obj, sort_keys=True, indent=2)  #sort_keys=True是按照字母表排列，先数字后字母
+    return json.dumps(obj, sort_keys=True, indent=2)  #sort_keys=True是按照字母表排列，先数字后字母，indent表示后面有多少空格
 
 d = {'key1': {'c': True, 'a': 90, '5': 50}, 'key2':{'b': 3, 'c': "yes"}}
 
