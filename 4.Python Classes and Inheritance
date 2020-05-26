@@ -27,4 +27,64 @@ p = Point(7,6)
 print(p.getX())
 print(p.getY())
 print(p.distanceFromOrigin())
+————Objects as Arguments and Parameters
+import math
+
+class Point:
+    """ Point class for representing and manipulating x,y coordinates. """
+
+    def __init__(self, initX, initY):
+
+        self.x = initX
+        self.y = initY
+
+    def getX(self):
+        return self.x
+
+    def getY(self):
+        return self.y
+
+    def distanceFromOrigin(self):
+        return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+
+def distance(point1, point2):     #这里distance是在外面的
+    xdiff = point2.getX()-point1.getX()
+    ydiff = point2.getY()-point1.getY()
+
+    dist = math.sqrt(xdiff**2 + ydiff**2)
+    return dist
+
+p = Point(4,3)
+q = Point(0,0)
+print(distance(p,q))
+————
+import math
+
+class Point:
+    """ Point class for representing and manipulating x,y coordinates. """
+
+    def __init__(self, initX, initY):
+
+        self.x = initX
+        self.y = initY
+
+    def getX(self):
+        return self.x
+
+    def getY(self):
+        return self.y
+
+    def distanceFromOrigin(self):
+        return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+
+    def distance(self, point2):              #这里是在里面的，变成了p这个点为self，和point2比较
+        xdiff = point2.getX()-self.getX()
+        ydiff = point2.getY()-self.getY()
+
+        dist = math.sqrt(xdiff**2 + ydiff**2)
+        return dist
+
+p = Point(4,3)
+q = Point(0,0)
+print(p.distance(q))
 ————
