@@ -11,7 +11,6 @@ randrange(1,7)   # return an int, one of 1,2,3,4,5,6
 
 #week two
 song.split() song里按空格切分成list，（"e"）就是按照e切分成list；"/".join(song) 就是通过/把song里的各部分合起来
-zip()可以把多个list合成一个tuple
 
 #week four
  the behavior of obj = obj + object_two is different than obj += object_two when obj is a list.
