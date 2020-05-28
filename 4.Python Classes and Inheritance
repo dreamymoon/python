@@ -121,6 +121,18 @@ aadl.addBook(myBook)
 aadl.addBook(myPaperBook)
 —————课后练习，理解题意比较费劲
                                                ———————————————— week 3 ————————————————
-                                               
+ ————Test cases
+ def square(x):
+    return x*x
+
+assert square(3) == 9 #如果True，正常运行，如果False，报错
+————当然，也可以用test.testEqual功能
+def square(x):
+    return x*x
+    
+import test
+test.testEqual(square(9),100) #False
+————
+
                                                
                                                
