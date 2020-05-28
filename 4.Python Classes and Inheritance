@@ -125,8 +125,8 @@ aadl.addBook(myPaperBook)
  def square(x):
     return x*x
 
-assert square(3) == 9 #如果True，正常运行，如果False，报错
-————当然，也可以用test.testEqual功能
+assert square(3) == 9 #如果True，返回界面是空白的，如果False，程序报错
+————当然，也可以用test.testEqual功能，会显示对错
 def square(x):
     return x*x
     
