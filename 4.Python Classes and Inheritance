@@ -146,7 +146,16 @@ except Exception as e:
     print("got an error")
     print(e)      #显示 IndexError: list index out of range on line 3
 ————
-
-
+if somekey in d:
+    # it's there; extract the data
+    extract_data(d)
+else:
+    skip_this_one(d)
+前者适合知道确切的数据或者数据少时使用 VS 后者适合不知道确切数据，或者数据多的时候使用
+try:
+    extract_data(d)
+except KeyError:
+    skip_this_one(d)
+————
                                                
                                                
