@@ -132,7 +132,21 @@ def square(x):
     
 import test
 test.testEqual(square(9),100) #False
+————TRY/EXCEPT
+try:
+   <try clause code block>
+except <ErrorType>:
+   <exception handler code block>
 ————
+try:
+    items = ['a', 'b']
+    third = items[2]
+    print("This won't print")
+except Exception as e:
+    print("got an error")
+    print(e)      #显示 IndexError: list index out of range on line 3
+————
+
 
                                                
                                                
