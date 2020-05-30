@@ -142,7 +142,7 @@ try:
     items = ['a', 'b']
     third = items[2]
     print("This won't print")
-except Exception as e:
+except Exception as e:   #大写的Exception,可以囊括所有的错误类型
     print("got an error")
     print(e)      #显示 IndexError: list index out of range on line 3
 ————
