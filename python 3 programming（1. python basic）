@@ -17,6 +17,7 @@ song.split() song里按空格切分成list，（"e"）就是按照e切分成list
  The first version makes a new object entirely and reassigns to obj. 
  The second version changes the original object so that the contents of object_two are added to the end of the first.
 
+str="ABCDE",str[0]=A,str[-1]=E,str[:-1]=ABCDE, str[::-1]=EDCBA 多一个冒号就反过来了
 mylist.append(5) 添加5进去；mylist.insert(1, 12) 在1位置插入12；mylist.count(12) 12出现次数计数；mylist.index(3) 3出现的位置；
 mylist.reverse()前后倒；mylist.sort() 从小到大排列；mylist.remove(5) 移除5这个数字 VS del mylist[0]删除第一位数；mylist.pop() Removes and returns the last item；
 Non-mutating:a.upper() a.lower() 全部大写/小写；"***"+ss.strip()+"***" 移除前后的空格；news = ss.replace("o", "***") 替换
